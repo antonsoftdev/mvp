@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="20240711-01-USERS_LEADS" author="">
+        <createTable tableName="USERS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="PHONE" type="varchar(30)"/>
+            <column name="ADDRESS" type="varchar(100)"/>
+            <column name="FIRST_NAME" type="VARCHAR(100)"/>
+            <column name="LAST_NAME" type="VARCHAR(100)"/>
+            <column name="AGE" type="NUMERIC(3)"/>
+            <column name="KPI" type="NUMERIC(1)"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

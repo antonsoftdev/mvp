@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/20240711-01-USERS_initial-schema.xml
+  - include:
+      file: db/changelog/changeset/20240711-04-LEADS_initial-schema.xml

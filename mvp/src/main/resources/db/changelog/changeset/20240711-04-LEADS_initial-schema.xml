@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="20240711-02-LEADS" author="">
+        <createTable tableName="LEADS">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="USER_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WORKER_ID" type="BIGINT"/>
+            <column name="DATE_OF_LEAD" type="VARCHAR(100)"/>
+            <column name="DATE_TO_WORK" type="VARCHAR(100)"/>
+            <column name="WORK_CONTENT" type="VARCHAR(5000)"/>
+            <column name="PRICE" type="VARCHAR(10)"/>
+            <column name="FEEDBACK_FROM_USER" type="VARCHAR(100)"/>
+            <column name="FEEDBACK_FROM_WORKER" type="VARCHAR(100)"/>
+            <column name="STATUS" type="VARCHAR(5)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20240711-03-LEADS_FOREIGN_KEY_CONSTRAINT" author="">
+        <addForeignKeyConstraint baseTableName="LEADS"
+                                 baseColumnNames="USER_ID"
+                                 constraintName="LEADS_USER_ID_FK"
+                                 referencedTableName="USERS"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="20240711-04-LEADS_FOREIGN_KEY_CONSTRAINT" author="">
+        <addForeignKeyConstraint baseTableName="LEADS"
+                                 baseColumnNames="WORKER_ID"
+                                 constraintName="LEADS_WORKER_ID_FK"
+                                 referencedTableName="USERS"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+</databaseChangeLog>
